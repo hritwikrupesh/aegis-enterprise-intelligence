@@ -4,11 +4,7 @@ from enum import Enum
 from uuid import uuid4
 
 
-class EventSeverity(Enum):
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
-    HIGH = "HIGH"
-    CRITICAL = "CRITICAL"
+from app.domain.enums.event_severity import EventSeverity
 
 
 @dataclass
