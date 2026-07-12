@@ -1,0 +1,18 @@
+{
+  "id": "cyber_attack",
+  "name": "Cyber Attack",
+  "description": "A cyber attack causing increased infrastructure load and customer impact.",
+  "category": "Security",
+  "duration_minutes": 45,
+  "probability": 0.05,
+  "effects": {
+    "traffic": -100,
+    "cpu_usage": 45,
+    "memory_usage": 30,
+    "active_orders": -30,
+    "warehouse_load": 0,
+    "support_tickets": 40,
+    "customer_satisfaction": -15,
+    "cloud_cost": 100
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "holiday_season",
+  "name": "Holiday Season",
+  "description": "Peak shopping season with increased traffic and order volume.",
+  "category": "Seasonal",
+  "duration_minutes": 180,
+  "probability": 0.15,
+  "effects": {
+    "traffic": 1200,
+    "cpu_usage": 35,
+    "memory_usage": 20,
+    "active_orders": 500,
+    "warehouse_load": 40,
+    "support_tickets": 15,
+    "customer_satisfaction": 5,
+    "cloud_cost": 150
+  }
+}

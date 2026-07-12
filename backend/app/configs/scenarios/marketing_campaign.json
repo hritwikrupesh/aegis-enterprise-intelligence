@@ -1,0 +1,18 @@
+{
+  "id": "marketing_campaign",
+  "name": "Marketing Campaign",
+  "description": "A promotional campaign that increases website traffic and customer orders.",
+  "category": "Business",
+  "duration_minutes": 60,
+  "probability": 0.20,
+  "effects": {
+    "traffic": 500,
+    "cpu_usage": 20,
+    "memory_usage": 10,
+    "active_orders": 200,
+    "warehouse_load": 15,
+    "support_tickets": 8,
+    "customer_satisfaction": 2,
+    "cloud_cost": 50
+  }
+}
