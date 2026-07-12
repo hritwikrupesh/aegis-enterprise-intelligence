@@ -1,0 +1,26 @@
+[
+  {
+    "metric": "traffic",
+    "operator": ">",
+    "threshold": 1500,
+    "target": "cpu_usage",
+    "adjustment": 20,
+    "description": "High traffic increases CPU usage."
+  },
+  {
+    "metric": "cpu_usage",
+    "operator": ">",
+    "threshold": 80,
+    "target": "cloud_cost",
+    "adjustment": 50,
+    "description": "High CPU usage increases cloud cost."
+  },
+  {
+    "metric": "active_orders",
+    "operator": ">",
+    "threshold": 300,
+    "target": "warehouse_load",
+    "adjustment": 15,
+    "description": "High order volume increases warehouse utilization."
+  }
+]
