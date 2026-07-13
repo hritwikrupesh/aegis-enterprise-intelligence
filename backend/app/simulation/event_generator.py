@@ -1,18 +1,16 @@
-from app.domain.entities.enterprise_event import (
-    EnterpriseEvent,
-)
-from app.domain.enums.event_severity import EventSeverity
+from app.domain.entities.enterprise_event import EnterpriseEvent
 from app.domain.entities.scenario import Scenario
+from app.domain.enums.event_severity import EventSeverity
 from app.simulation.environment import SimulationEnvironment
 
 
 class EventGenerator:
     """
-    Applies scenario effects to the simulation environment
-    and generates enterprise events.
+    Generates enterprise events after the environment
+    has already been updated.
     """
 
-    def apply_scenario(
+    def generate(
         self,
         scenario: Scenario,
         environment: SimulationEnvironment,
@@ -21,14 +19,6 @@ class EventGenerator:
         events = []
 
         for metric, value in scenario.effects.items():
-
-            current_value = getattr(environment, metric)
-
-            setattr(
-                environment,
-                metric,
-                current_value + value,
-            )
 
             event = EnterpriseEvent(
                 event_type="STATE_CHANGE",
