@@ -4,22 +4,28 @@ from app.simulation.environment import SimulationEnvironment
 
 class EffectProcessor:
     """
-    Applies the direct effects of a scenario
-    to the simulation environment.
+    Applies scenario effects and records the changes.
     """
 
     def apply(
         self,
         scenario: Scenario,
         environment: SimulationEnvironment,
-    ) -> None:
+    ) -> dict:
+
+        changes = {}
 
         for metric, value in scenario.effects.items():
 
-            current_value = getattr(environment, metric)
+            previous_value = getattr(environment, metric)
 
-            setattr(
-                environment,
-                metric,
-                current_value + value,
-            )
+            current_value = previous_value + value
+
+            setattr(environment, metric, current_value)
+
+            changes[metric] = {
+                "previous": previous_value,
+                "current": current_value,
+            }
+
+        return changes

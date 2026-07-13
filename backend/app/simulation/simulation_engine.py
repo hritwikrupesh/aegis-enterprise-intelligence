@@ -28,13 +28,14 @@ class SimulationEngine:
         print(scenario)
         print()
 
-        self.effect_processor.apply(
-            scenario,
-            self.environment,
-            )
+        changes = self.effect_processor.apply(
+             scenario,
+             self.environment,
+             )
         events = self.generator.generate(
             scenario,
             self.environment,
+            changes,
             )
         print("Updated Environment")
         print(self.environment)

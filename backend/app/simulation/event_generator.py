@@ -14,6 +14,7 @@ class EventGenerator:
         self,
         scenario: Scenario,
         environment: SimulationEnvironment,
+        changes: dict,
     ) -> list[EnterpriseEvent]:
 
         events = []
@@ -21,11 +22,18 @@ class EventGenerator:
         for metric, value in scenario.effects.items():
 
             event = EnterpriseEvent(
+                enterprise_id="enterprise-001",
+                scenario_id=scenario.id,
+
                 event_type="STATE_CHANGE",
-                source=scenario.name,
-                description=f"{metric} changed by {value}",
+                metric=metric,
+
+                previous_value=changes[metric]["previous"],
+                current_value=changes[metric]["current"],
+
                 severity=EventSeverity.MEDIUM,
-            )
+                source="SimulationEngine",
+                )
 
             events.append(event)
 
