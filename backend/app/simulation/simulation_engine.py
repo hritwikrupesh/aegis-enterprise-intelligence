@@ -5,6 +5,7 @@ from app.simulation.environment import SimulationEnvironment
 from app.simulation.scenario_loader import ScenarioLoader
 from app.simulation.event_generator import EventGenerator
 from app.simulation.effect_processor import EffectProcessor
+from app.cloud.pubsub_publisher import PubSubPublisher
 
 
 class SimulationEngine:
@@ -20,6 +21,7 @@ class SimulationEngine:
         )
         self.generator = EventGenerator()
         self.effect_processor = EffectProcessor()
+        self.publisher = PubSubPublisher()
 
     def run(self):
         scenario = self.loader.load("marketing_campaign.json")
@@ -45,6 +47,7 @@ class SimulationEngine:
 
         for event in events:
             print(event)
+            self.publisher.publish(event)
         
         print()
 
